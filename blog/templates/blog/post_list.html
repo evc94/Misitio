@@ -1,18 +1,29 @@
+{% load staticfiles %}
     <html>
         <head>
             <title>Blog ERokerVC</title>
+            <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	    <link rel="stylesheet" href="{% static "css/blog.css" %}">
+	    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         </head>
         <body>
               <div>
         <h1><a href="/">Blog de Estuardo V.</a></h1>
     </div>
-
-    {% for post in posts %}
-        <div>
-            <p>Publicado el: {{ post.fecha_publicacion }}</p>
+    <div class="conten container">
+      <div class="col-md-8">
+	 {% for post in posts %}
+           <div class="post">
+            <div class="date">
+		Publicado el: {{ post.fecha_publicacion }}
+	    </div>
             <h1><a href="">{{ post.titulo }}</a></h1>
             <p>{{ post.texto|linebreaks }}</p>
         </div>
     {% endfor %}
+        </div>
+    </div>
+</div>
         </body>
     </html>
